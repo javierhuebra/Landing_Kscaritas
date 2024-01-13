@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+
+@keyframes rotates {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Puedes ajustar los valores según tus preferencias */
+}
+
+.img-background {
+  background-image: url('./assets/globoamarillo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.img-background2 {
+  background-image: url('./assets/globo2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.img-background3 {
+  background-image: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)), url(./assets/playa.jpg);
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.img-las-grutas {
+  background-image: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)), url(./assets/las-grutas.webp);
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+
+.drop-shadow-anexo {
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));
+}
+
+.custom-shadow {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+.relative:hover .para-hover {
+  display: flex;
+}
+
+.scrollable-div::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Personaliza la apariencia del "track" (el área por la que se desplaza) */
+.scrollable-div::-webkit-scrollbar-track {
+  background-color: #694545;
+}
+
+/* Personaliza la apariencia del "thumb" (la parte móvil de la barra de desplazamiento) */
+.scrollable-div::-webkit-scrollbar-thumb {
+  background-color: #ec8003;
+  border-radius: 6px;
+}
+
+.clip-diagonal1 {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+}
+
+.clip-diagonal2 {
+  clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 360px) {
+  .texto-peque {
+    font-size: 13px;
+  }
+  .texto-peque2 {
+    font-size: 10px;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
