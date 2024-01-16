@@ -7,6 +7,7 @@ import { FaSquareThreads } from "react-icons/fa6";
 import lasgrutas from '../assets/lasgrutaschurros.jpg';
 import '../index.css';
 import { navBarContext } from '../../context/context';
+
 const Footer = () => {
     const [isOpen, setIsOpen] = useState(true);
     const { isNavBarActive } = useContext(navBarContext);
@@ -15,6 +16,7 @@ const Footer = () => {
             {
                 isNavBarActive &&
                 <div className="w-full h-[10%]   absolute bottom-0 flex justify-center items-center ">
+                    
                     <a href="https://www.instagram.com/kscaritas/" target="_blank">
 
                         <AiFillInstagram className='hover:text-[#f99829] text-4xl text-white' />

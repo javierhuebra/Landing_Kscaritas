@@ -10,7 +10,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         name: "K'scaritas",
-        short_name: "K'sca",
+        short_name: "K'scaritas",
         lang: 'es-ES',
         description: 'App de Kscaritas para el mundo',
         theme_color: '#ffffff',
@@ -28,7 +28,8 @@ export default defineConfig({
             type: 'image/png',
             purpose: 'maskable'
           }
-        ]
+        ],
+        start_url: '/',
       }
     })
   ],

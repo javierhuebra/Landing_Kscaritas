@@ -1,6 +1,6 @@
 // En algún componente de tu aplicación
 import React, { useEffect, useState } from 'react';
-
+import playstores from '../../assets/playstores.png';
 const InstallButton = () => {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
 
@@ -34,10 +34,9 @@ const InstallButton = () => {
     };
 
     return (
-        <div className='w-[50px] h-[30px] bg-red-400'>
-            <button onClick={handleInstallClick} className='bg-white'>
-                Instalar la aplicación
-            </button>
+        <div onClick={handleInstallClick} className='w-[150px] md:w-[230px] absolute left-5 bottom-[15%] hover:cursor-pointer' style={{ display: deferredPrompt ? 'block' : 'none' }}>
+            <img src={playstores} alt="" />
+            
         </div>
 
     );
