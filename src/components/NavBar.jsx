@@ -19,7 +19,7 @@ const NavBar = () => {
                     }
 
                     <div className='w-full h-full  flex justify-between '>
-                        <div onClick={() => navigate('/')} className='w-[200px] h-full flex justify-center items-center cursor-pointer hover:rotate-2'>
+                        <div onClick={() => navigate('/')} className='w-[200px] h-full flex justify-center items-center cursor-pointer '>
                             <img src={logo} alt=""  />
                         </div>
                         <div onClick={() => setIsOpenMenu(true)} className='w-[200px] h-full flex pr-2 justify-end items-center cursor-pointer'>
