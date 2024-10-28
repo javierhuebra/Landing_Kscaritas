@@ -25,22 +25,7 @@ const SobreNosotros = () => {
                             <img src={logo} alt="logo kscaritas" className='h-full rounded-2xl hidden sm:ml-2 sm:block' />
                         </div>
                         <div className='mt-1 w-full  h-[30%] sm:h-[50%]  flex justify-center items-center'>
-                            <div className=' w-full h-full sm:p-5 sm:rounded-xl bg-black bg-opacity-[0.5] flex justify-center items-center'>
-                                <iframe  
-                                    className='sm:h-full sm:w-[40%] sm:mr-3'
-                                    src="https://www.youtube.com/embed/TUqNSsuGcMc?si=0Bor-AT7B6jzoUzt"
-                                    title="YouTube video player" frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen>
-                                </iframe>
-                                <div className='w-[250px] sm:h-full ml-1 border-2 p-5 rounded-xl hidden sm:block'>
-                                    <p className='text-white text-xl '>
-                                        En éste informe de la TV pública Argentina te contamos un poquito más
-                                        sobre nosotros y nuestra historia.
-                                    </p>
-                                    <img className='w-[80%] mt-5' src="https://1.bp.blogspot.com/-dyZYV7V7hB0/YAJww7XfMNI/AAAAAAAA7us/zV5MW_gH4r4kTsvy9qNy8PPyi6UnorfuQCLcBGAsYHQ/s1920/tvp-2021.png" alt="" />
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div>

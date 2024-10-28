@@ -5,6 +5,7 @@ import { AiFillTwitterSquare } from "react-icons/ai";
 import { BiLogoTiktok } from "react-icons/bi";
 import { FaSquareThreads } from "react-icons/fa6";
 import lasgrutas from '../assets/lasgrutaschurros.jpg';
+import halloween from '../assets/halloween.png';
 import '../index.css';
 import { navBarContext } from '../../context/context';
 
@@ -43,7 +44,7 @@ const Footer = () => {
                             onClick={() => setIsOpen(false)}
                         >
                             <p className="bg-yellow-500 text-black">x Publicidad</p>
-                            <img className="h-[150px] sm:h-[200px] md:h-[300px] rounded-xl " src={lasgrutas} alt="" />
+                            <img className="h-[150px] sm:h-[200px] md:h-[300px] rounded-xl " src={halloween} alt="" />
                         </div>
                     }
 

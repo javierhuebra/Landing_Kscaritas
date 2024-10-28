@@ -6,7 +6,8 @@ import { BsFillPinMapFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { AiFillGoogleCircle } from "react-icons/ai";
 const Puntos = () => {
-    const position = { lat: -40.811559, lng: -65.088664 };
+    const position = { lat: -40.8117197, lng: -65.0886717 };
+
     return (
         <>
             <div className='h-[100vh] w-[100vw] animate-fade-right animate-once'>
@@ -23,7 +24,7 @@ const Puntos = () => {
                                         </p>
                                     </div>
 
-                                    <p className='text-white text-xl mt-2 custom-text-shadow italic text-center'>Peatonal Viedma 824 - Planta Alta</p>
+                                    <p className='text-white text-xl mt-2 custom-text-shadow italic text-center'>Peatonal Viedma 824 - Planta Baja</p>
                                 </div>
                                 <div>
 
@@ -75,7 +76,7 @@ const Puntos = () => {
 
                                                     <img src={pincito} alt="" className='w-[40px] rounded-full border-red-500 border-[5px] animate-pulse' />
                                                     <div className='absolute bg-orange-400 w-[100px] p-1 left-[102%] top-[-25%] rounded-xl '>
-                                                        <p>¡Acá estamos! En la escalera que sube al primer piso.</p>
+                                                        <p>¡Acá estamos! En la 2da bajada. Pegaditos al barranco, en planta baja.</p>
                                                     </div>
                                                 </div>
                                             </AdvancedMarker>
