@@ -25,6 +25,9 @@ const Hero = () => {
                                 <button onClick={() => navigate('/productos')} className='bg-[#f95329] custom-shadow rounded-lg mt-3 select-none px-[25px] hover:bg-[#f99829]'>
                                     <p className='text-[30px] sm:text-[40px]  text-white font-marker '>Productos</p>
                                 </button>
+                                <button onClick={() => navigate('/puntos-de-venta')} className='bg-[#f95329] lg:ml-2  custom-shadow rounded-lg mt-3 select-none px-[25px] hover:bg-[#f99829]'>
+                                    <p className='text-[30px] sm:text-[40px]  text-white font-marker '>Sucursales</p>
+                                </button>
                             </div>
                             <InstallButton />
                         </div>

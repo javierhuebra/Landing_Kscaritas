@@ -38,7 +38,7 @@ const Footer = () => {
                     <a href="https://www.tiktok.com/@kscaritas?lang=es" target="_blank" rel="tiktok kscaritas">
                         <BiLogoTiktok className='hover:text-[#f99829] text-4xl text-white' />
                     </a>
-                    {
+                    {/* {
                         isOpen &&
                         <div className="animate-bounce absolute  bottom-10 right-10 cursor-pointer"
                             onClick={() => setIsOpen(false)}
@@ -46,7 +46,7 @@ const Footer = () => {
                             <p className="bg-yellow-500 text-black">x Publicidad</p>
                             <img className="h-[150px] sm:h-[200px] md:h-[300px] rounded-xl " src={halloween} alt="" />
                         </div>
-                    }
+                    } */}
 
 
                 </div>

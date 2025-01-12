@@ -14,6 +14,7 @@ import ImgGrande from './components/ImgGrande'
 import Contacto from './components/Contacto'
 import Anotador from './components/Anotador'
 import NavBarContextProvider from '../context/NavBarContextProvider'
+import Sucursal from './components/Sucursal'
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path='/galeria/imagen/:id' element={<ImgGrande />} />
             <Route path='/contacto' element={<Contacto />} />
             <Route path='/herramientas/anotador' element={<Anotador />} />
+            <Route path='/sucursal/:idSucursal' element={<Sucursal/>} />
           </Routes>
         </Router>
 

@@ -9,10 +9,10 @@ const SobreNosotros = () => {
                         <div className='w-full h-[70%] sm:h-[50%] sm:rounded-xl p-5 flex bg-black bg-opacity-[0.5] '>
                             <div className=' flex-1 h-full  overflow-auto pr-5 scrollable-div'  >
                                 <h2 className='text-white font-marker text-4xl font-bold custom-text-shadow mb-4'>¿Quiénes Somos?</h2>
-                                <p className='text-justify text-white  text-xl custom-text-shadow'>
+                                <p className='text-left text-white  text-xl custom-text-shadow'>
                                     ¡Bienvenidos a Kscaritas, el hogar de los panificados de playa más deliciosos y originales!
-                                    Desde nuestro modesto comienzo en el año <span className='font-bold text-orange-400'>2010 en la ciudad de Las Grutas</span>,
-                                    nos hemos convertido en una verdadera referencia en la gastronomía playera gracias a nuestra pasión
+                                    Desde nuestro comienzo en el año <span className='font-bold text-orange-400'>2010 en la ciudad de Las Grutas</span>,
+                                    nos hemos convertido en una referencia en la gastronomía playera gracias a nuestra pasión
                                     por la <span className='font-bold text-orange-400'>innovación y compromiso</span> con la satisfacción de nuestros clientes.
                                     <br/>
                                     En K'scaritas, no solo elaboramos productos; creamos experiencias únicas y

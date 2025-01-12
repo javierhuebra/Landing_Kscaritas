@@ -25,6 +25,13 @@ import img18 from '../assets/img_galeria/18.jpg'
 import img19 from '../assets/img_galeria/19.jpg'
 import img20 from '../assets/img_galeria/20.jpg'
 
+import imgSucursal1 from '../assets/sucursal1_1.jpg'
+import imgSucursal2 from '../assets/sucursal1_2.jpg'
+import imgSucursal3 from '../assets/sucursal1_3.jpg'
+import imgSucursal4 from '../assets/sucursal1_4.jpg'
+import imgSucursal5 from '../assets/sucursal1_5.jpeg'
+import imgSucursal6 from '../assets/sucursal1_6.jpeg'
+
 export const descripciones = {
     churros: `Descubre los Churros K'scaritas, una delicia única que fusiona tradición y 
     calidad en la majestuosa región de la Patagonia. Su masa perfectamente crujiente por fuera 
@@ -86,3 +93,39 @@ export const emailConfig = {
     templateID: import.meta.env.VITE_TEMPLATE_ID,
     userID: import.meta.env.VITE_USER_ID,
 };
+
+export const sucursales = [
+{
+    id: 1,
+    nombre: 'Casa Central',
+    direccion: 'Las Grutas Río Negro, Peatonal Viedma 824 - Planta Baja',
+    descripcion: 'La casa central de K\'scaritas es el corazón de la empresa. Aquí nace la magia de nuestros productos y servicios.',
+    servicios: ['Cafetería', 'Especialidades', 'Take away', 'Sanitarios', 'Vista al mar', 'Wifi'],
+    telefono: '-',
+    menu: 'http://javierhuebra.github.io/ksca_menu_digital',
+    imagenes: [imgSucursal6, imgSucursal1, imgSucursal3, imgSucursal4,imgSucursal5, imgSucursal2],
+    horarios: 'Todos los días de 09:30 a 20:30'
+},
+{
+    id: 2,
+    nombre: 'Sucursal Calle Bariloche',
+    direccion: 'Las Grutas Río Negro, Bariloche 770',
+    descripcion: 'Nuestra sucursal en calle Bariloche es un punto estratégico para que puedas disfrutar de nuestros productos en cualquier momento.',
+    servicios: ['Fast Food', 'Especialidades', 'Take away','Consumo en el salón', 'Wifi'],
+    telefono: '-',
+    menu: 'http://kscaritas.com',
+    imagenes: [img1, img2, img3, img4, img5, img6],
+    horarios: 'Todos los días de 20:30 a 00:30'
+},
+{
+    id: 3,
+    nombre: 'Sucursal Calle El Bolsón',
+    direccion: 'Las Grutas Río Negro, El Bolsón 576',
+    descripcion: 'En la zona de la primer bajada, en calle Bolsón, K\'scaritas te espera con la mejor atención y la calidad de siempre.',
+    servicios: ['Especialidades', 'Take away'],
+    telefono: '-',
+    menu: 'http://kscaritas.com',
+    imagenes: [img1, img2, img3, img4, img5, img6],
+    horarios: 'Todos los días de 09:30 a 20:30'
+}
+]
