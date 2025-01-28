@@ -102,7 +102,7 @@ export const sucursales = [
     descripcion: 'La casa central de K\'scaritas es el corazón de la empresa. Aquí nace la magia de nuestros productos y servicios.',
     servicios: ['Cafetería', 'Especialidades', 'Take away', 'Sanitarios', 'Vista al mar', 'Wifi'],
     telefono: '-',
-    menu: 'http://javierhuebra.github.io/ksca_menu_digital',
+    menu: 'https://javierhuebra.github.io/ksca_menu_digital',
     imagenes: [imgSucursal6, imgSucursal1, imgSucursal3, imgSucursal4,imgSucursal5, imgSucursal2],
     horarios: 'Todos los días de 09:30 a 20:30'
 },
@@ -113,9 +113,9 @@ export const sucursales = [
     descripcion: 'Nuestra sucursal en calle Bariloche es un punto estratégico para que puedas disfrutar de nuestros productos en cualquier momento.',
     servicios: ['Fast Food', 'Especialidades', 'Take away','Consumo en el salón', 'Wifi'],
     telefono: '-',
-    menu: 'http://kscaritas.com',
+    menu: 'https://javierhuebra.github.io/carta_fastfood_ksca/',
     imagenes: [img1, img2, img3, img4, img5, img6],
-    horarios: 'Todos los días de 20:30 a 00:30'
+    horarios: 'Todos los días de 12:00 a 15:00 y de 20:00 a 00:00'
 },
 {
     id: 3,
