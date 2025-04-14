@@ -33,7 +33,8 @@ export default defineConfig({
       }
     })
   ],
-  base: "https://kscaritas.com",
+  //base: "https://kscaritas.com",
+  base:"/",
   server: {
     host: '0.0.0.0',
   },
