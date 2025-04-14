@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import SobreNosotros from './components/SobreNosotros'
 import Productos from './components/Productos'
 import Puntos from './components/Puntos'
