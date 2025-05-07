@@ -45,8 +45,8 @@
 
 .img-las-grutas {
   background-image: linear-gradient(0deg,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)), url(./assets/las-grutas.webp);
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.8)), url(./assets/las-grutas.webp);
   background-size: cover;
 
   background-repeat: no-repeat;
