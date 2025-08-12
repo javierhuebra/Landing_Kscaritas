@@ -16,6 +16,7 @@ import Anotador from './components/Anotador'
 import NavBarContextProvider from '../context/NavBarContextProvider'
 import Sucursal from './components/Sucursal'
 import PaquetesPublicidad from './components/PaquetesPublicidad'
+import Signos from './components/Signos'
 
 
 function AppWrapper() {
@@ -28,7 +29,7 @@ function AppWrapper() {
 
 function App() {
   const location = useLocation()
-  const hideNavBarRoutes = ['/servicios-anuales'] // puedes agregar más rutas si lo necesitas
+  const hideNavBarRoutes = ['/servicios-anuales', '/signos'] // puedes agregar más rutas si lo necesitas
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname)
 
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path='/herramientas/anotador' element={<Anotador />} />
           <Route path='/sucursal/:idSucursal' element={<Sucursal />} />
           <Route path='/servicios-anuales' element={<PaquetesPublicidad />} />
+          <Route path='/signos' element={<Signos />} />
         </Routes>
 
         <Footer />

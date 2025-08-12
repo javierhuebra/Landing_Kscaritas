@@ -58,7 +58,7 @@ export const descripciones = {
     Creamos una deliciosa experiencia gastronómica.`
 };
 
-export const rellenos = ['Sin relleno', 'D. de Leche', 'Nutella', 'Frambuesa', 'Crema Pastelera', 'Marroc', 'Manzana', 'Membrillo', 'Roquefort', 'Cheddar c/Al']
+export const rellenos = ['Sin relleno', 'D. de Leche', 'Nutella', 'Frambuesa', 'Crema Pastelera', 'Marroc', 'Manzana', 'Membrillo', 'Roquefort', 'Cheddar y Albahaca']
 export const productos = [
     {
         producto: 'Churros',
