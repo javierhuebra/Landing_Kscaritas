@@ -17,6 +17,8 @@ import NavBarContextProvider from '../context/NavBarContextProvider'
 import Sucursal from './components/Sucursal'
 import PaquetesPublicidad from './components/PaquetesPublicidad'
 import Signos from './components/Signos'
+import Juego from './components/juego/Juego'
+
 
 
 function AppWrapper() {
@@ -29,12 +31,16 @@ function AppWrapper() {
 
 function App() {
   const location = useLocation()
-  const hideNavBarRoutes = ['/servicios-anuales', '/signos'] // puedes agregar más rutas si lo necesitas
+  const hideNavBarRoutes = ['/servicios-anuales', '/signos', '/juego']
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname)
+
+  const hideFooterRoutes = ['/juego']
+  const shouldShowFooter = !hideFooterRoutes.includes(location.pathname)
 
   return (
     <div className='bg-black overflow-hidden relative'>
       <NavBarContextProvider>
+
         {shouldShowNavBar && <NavBar />}
 
         <Routes>
@@ -51,9 +57,11 @@ function App() {
           <Route path='/sucursal/:idSucursal' element={<Sucursal />} />
           <Route path='/servicios-anuales' element={<PaquetesPublicidad />} />
           <Route path='/signos' element={<Signos />} />
+          <Route path='/juego' element={<Juego />} />
         </Routes>
 
-        <Footer />
+        {shouldShowFooter && <Footer />}
+
       </NavBarContextProvider>
     </div>
   )
