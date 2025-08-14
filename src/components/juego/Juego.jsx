@@ -9,7 +9,6 @@ import churro2 from './imagenes/churroplatopix.png'
 import churro3 from './imagenes/tortafritapix.png'
 import churro4 from './imagenes/bombapix.png'
 
-
 // Personaje
 import churrero from './imagenes/churreropix.png'
 
@@ -17,22 +16,21 @@ const Juego = () => {
     const [playerX, setPlayerX] = useState(window.innerWidth / 2)
     const [fallingObjects, setFallingObjects] = useState([])
     const [score, setScore] = useState(0)
-
     const [launcherX, setLauncherX] = useState(100)
     const [launcherDirection, setLauncherDirection] = useState('right')
     const [playerSize, setPlayerSize] = useState(70)
-
+    const [facing, setFacing] = useState('left')
+    const [hasStarted, setHasStarted] = useState(false)
 
     const playerXRef = useRef(playerX)
     const launcherXRef = useRef(launcherX)
 
-    // Objetos con imagen y puntos
     const objectTypes = [
         {
             image: churro1,
             points: 10,
             style: { width: '70px', height: '90px' },
-            effect: 'grow', // 👈 efecto
+            effect: 'grow',
         },
         {
             image: churro2,
@@ -50,11 +48,10 @@ const Juego = () => {
             image: churro4,
             points: -15,
             style: { width: '70px', height: '70px' },
-            effect: 'shrink', // 👈 bomba
+            effect: 'shrink',
         },
     ]
 
-    //Para medir la pantalla
     const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
     useEffect(() => {
         const updateHeight = () => {
@@ -67,8 +64,9 @@ const Juego = () => {
         return () => window.removeEventListener('resize', updateHeight)
     }, [])
 
-
-
+    useEffect(() => {
+        window.scrollTo(0, 1)
+    }, [])
 
     useEffect(() => {
         playerXRef.current = playerX
@@ -77,10 +75,10 @@ const Juego = () => {
     useEffect(() => {
         launcherXRef.current = launcherX
     }, [launcherX])
-    const [facing, setFacing] = useState('left') // nuevo estado
+
     const movePlayer = (direction) => {
         const step = 30
-        setFacing(direction) // actualiza dirección
+        setFacing(direction)
         setPlayerX((prev) => {
             const newX =
                 direction === 'left'
@@ -91,7 +89,6 @@ const Juego = () => {
         })
     }
 
-    // Movimiento automático del lanzador
     useEffect(() => {
         const interval = setInterval(() => {
             setLauncherX((prev) => {
@@ -120,8 +117,9 @@ const Juego = () => {
         return () => clearInterval(interval)
     }, [launcherDirection])
 
-    // Generar objetos que caen con intervalo variable
     useEffect(() => {
+        if (!hasStarted) return
+
         let timeoutId
 
         const spawnObject = () => {
@@ -139,16 +137,15 @@ const Juego = () => {
                 },
             ])
 
-            const nextInterval = Math.random() * 1000 + 1000 // 1s a 2s
+            const nextInterval = Math.random() * 1000 + 1000
             timeoutId = setTimeout(spawnObject, nextInterval)
         }
 
         spawnObject()
 
         return () => clearTimeout(timeoutId)
-    }, [])
+    }, [hasStarted])
 
-    // Movimiento y colisión
     useEffect(() => {
         const moveObjects = () => {
             setFallingObjects((prevObjects) => {
@@ -164,10 +161,9 @@ const Juego = () => {
                         if (collides) {
                             setScore((prev) => prev + obj.points)
 
-                            // Aplicar efecto
                             if (obj.effect === 'grow') {
                                 setPlayerSize(90)
-                                setTimeout(() => setPlayerSize(70), 100) // volver al tamaño normal luego de 100ms
+                                setTimeout(() => setPlayerSize(70), 100)
                             } else if (obj.effect === 'shrink') {
                                 setPlayerSize(50)
                                 setTimeout(() => setPlayerSize(70), 100)
@@ -186,86 +182,116 @@ const Juego = () => {
             requestAnimationFrame(moveObjects)
         }
 
-        moveObjects()
-    }, [])
+        if (hasStarted) {
+            moveObjects()
+        }
+    }, [hasStarted])
+
+    const goFullscreen = () => {
+        const elem = document.documentElement
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen()
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen()
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen()
+        }
+    }
+
+    const handleStart = () => {
+        goFullscreen()
+        setHasStarted(true)
+    }
 
     return (
-        <div
-            className="flex flex-col w-screen bg-black text-white select-none overflow-hidden"
-            style={{ height: `${viewportHeight}px` }}
-        >
+        <>
+            {!hasStarted && (
+                <div className="fixed inset-0 bg-black flex flex-col justify-center items-center z-50 text-white">
+                    <h1 className="text-3xl mb-6">🎮 Juego del Churrero</h1>
+                    <button
+                        onClick={handleStart}
+                        className="px-6 py-3 bg-orange-600 rounded text-xl shadow-md hover:bg-orange-500 transition"
+                    >
+                        Iniciar juego en pantalla completa
+                    </button>
+                </div>
+            )}
+
             <div
-                className="relative flex-1 bg-cover bg-center"
-                style={{
-                    backgroundImage: `url(${background})`,
-                }}
+                className="flex flex-col w-screen bg-black text-white select-none overflow-hidden"
+                style={{ height: `${viewportHeight}px` }}
             >
-                <div className="absolute top-4 left-4 text-xl">Puntaje: {score}</div>
-
-                {/* Lanzador */}
                 <div
-                    className="absolute top-12 h-[30px] w-[30px] bg-pink-500 rounded"
-                    style={{ left: `${launcherX}px` }}
-                />
-                <div
-                    className="absolute top-20 h-[30px] w-full bg-cover bg-center"
+                    className="relative flex-1 bg-cover bg-center"
                     style={{
-                        backgroundImage: `url(${liana})`,
+                        backgroundImage: `url(${background})`,
                     }}
-                />
+                >
+                    <div className="absolute top-4 left-4 text-xl">Puntaje: {score}</div>
 
-                {/* Jugador con imagen */}
-                <img
-                    src={churrero}
-                    alt="Churrero"
-                    className={`absolute transition-all duration-100 drop-shadow-2xl ${facing === 'right' ? 'scale-x-[-1]' : ''}`}
-                    style={{
-                        bottom: '10px',
-                        left: `${playerX}px`,
-                        width: `${playerSize}px`,
-                        height: `${playerSize}px`,
-                    }}
-                />
-
-
-
-                {/* Objetos con imagen */}
-                {fallingObjects.map((obj) => (
-                    <img
-                        key={obj.id}
-                        src={obj.image}
-                        alt="Objeto"
-                        className="absolute"
+                    {/* Lanzador */}
+                    <div
+                        className="absolute top-12 h-[30px] w-[30px] bg-pink-500 rounded"
+                        style={{ left: `${launcherX}px` }}
+                    />
+                    <div
+                        className="absolute top-20 h-[30px] w-full bg-cover bg-center"
                         style={{
-                            top: `${obj.y}px`,
-                            left: `${obj.x}px`,
-                            ...obj.style, // ✅ aplica estilo personalizado
+                            backgroundImage: `url(${liana})`,
                         }}
                     />
-                ))}
 
-            </div>
-
-            {/* Controles */}
-            <div className="flex w-full bg-orange-500">
-                <button
-                    onClick={() => movePlayer('left')}
-                    className="w-1/2 py-6 flex justify-center items-center active:bg-gray-700"
-                >
-                    <img src={flecha} alt="Izquierda" className="h-[64px]" />
-                </button>
-                <button
-                    onClick={() => movePlayer('right')}
-                    className="w-1/2 py-6 flex justify-center items-center active:bg-gray-700"
-                >
+                    {/* Jugador */}
                     <img
-                        src={flecha}
-                        alt="Derecha"
-                        className="h-[64px] transform scale-x-[-1]"
+                        src={churrero}
+                        alt="Churrero"
+                        className={`absolute transition-all duration-100 drop-shadow-2xl ${facing === 'right' ? 'scale-x-[-1]' : ''}`}
+                        style={{
+                            bottom: '10px',
+                            left: `${playerX}px`,
+                            width: `${playerSize}px`,
+                            height: `${playerSize}px`,
+                        }}
                     />
-                </button>
+
+                    {/* Objetos */}
+                    {fallingObjects.map((obj) => (
+                        <img
+                            key={obj.id}
+                            src={obj.image}
+                            alt="Objeto"
+                            className="absolute"
+                            style={{
+                                top: `${obj.y}px`,
+                                left: `${obj.x}px`,
+                                ...obj.style,
+                            }}
+                        />
+                    ))}
+                </div>
+
+                {/* Controles */}
+                <div className="flex w-full bg-orange-500">
+                    <button
+                        onClick={() => movePlayer('left')}
+                        className="w-1/2 py-6 flex justify-center items-center active:bg-gray-700"
+                    >
+                        <img src={flecha} alt="Izquierda" className="h-[64px]" />
+                    </button>
+                    <button
+                        onClick={() => movePlayer('right')}
+                        className="w-1/2 py-6 flex justify-center items-center active:bg-gray-700"
+                    >
+                        <img
+                            src={flecha}
+                            alt="Derecha"
+                            className="h-[64px] transform scale-x-[-1]"
+                        />
+                    </button>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
