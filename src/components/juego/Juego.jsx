@@ -54,6 +54,18 @@ const Juego = () => {
         },
     ]
 
+    //Para medir la pantalla
+    const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
+    useEffect(() => {
+        const updateHeight = () => {
+            setViewportHeight(window.innerHeight)
+        }
+
+        updateHeight()
+        window.addEventListener('resize', updateHeight)
+
+        return () => window.removeEventListener('resize', updateHeight)
+    }, [])
 
 
 
@@ -178,7 +190,10 @@ const Juego = () => {
     }, [])
 
     return (
-        <div className="flex flex-col h-screen w-screen bg-black text-white select-none overflow-hidden">
+        <div
+            className="flex flex-col w-screen bg-black text-white select-none overflow-hidden"
+            style={{ height: `${viewportHeight}px` }}
+        >
             <div
                 className="relative flex-1 bg-cover bg-center"
                 style={{
